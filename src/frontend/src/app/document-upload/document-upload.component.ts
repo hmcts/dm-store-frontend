@@ -27,12 +27,16 @@ export class DocumentUploadComponent {
 
       this.httpClient.post<any>('/documents', formData, { headers })
           .subscribe(resp => {
-            this.documentUrl = resp._embedded.documents['0']._links.self.href;
+            this.documentUrl = this.formatUrl(resp._embedded.documents['0']._links.self.href);
           });
     }
   }
 
   setDocumentUrl(documentUrl: string) {
     this.documentUrl = documentUrl;
+  }
+
+  formatUrl(url: string): string {
+    return url.replace(/http.*\/documents\//, `/documents/`);
   }
 }

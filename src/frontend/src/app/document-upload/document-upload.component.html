@@ -1,4 +1,5 @@
 <div class="govuk-width-container">
+    <a routerLink="../" class="govuk-back-link">Back</a>
     <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
@@ -28,7 +29,7 @@
         <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">Show document URL</span>
         </summary>
-        <div class="govuk-details__text">{{ documentUrl }}</div>
+        <div class="govuk-details__text"><a [href]="documentUrl + '/binary'">Click to download</a></div>
     </details>
     </main>
 </div>
