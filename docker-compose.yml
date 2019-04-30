@@ -1,0 +1,10 @@
+---
+version: '2.2'
+
+services:
+  em-showcase:
+    build:
+      context: .
+    mem_limit: 128M
+    ports:
+      - 1337:1337

@@ -1,0 +1,67 @@
+{
+  "name": "em_showcase",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "An app showcasing common components built by the Evidence management team",
+  "main": "dist/src/api/start.js",
+  "scripts": {
+    "start": "node ./dist/src/api/server.js",
+    "start:dev": "cross-env NODE_PATH=. ts-node src/api/server.ts",
+    "setup:api": "cross-env NODE_PATH=. rm -rf ./dist/ && tsc -p ./ --outDir dist/",
+    "setup:frontend": "cd src/frontend && npm install && npm run build",
+    "setup": "npm run setup:api && npm run setup:frontend",
+    "lint": "cross-env NODE_PATH=. tslint --project .",
+    "test": "npm run lint -- $@ && npm run test:unit -- $@ && npm run test:acceptance -- $@",
+    "test:unit": "cross-env NODE_ENV=test NODE_PATH=. mocha --require ts-node/register 'test/unit/**/*.test.ts' --reporter spec --recursive",
+    "test:coverage": "cross-env NODE_ENV=test NODE_PATH=. nyc mocha --require ts-node/register 'test/unit/**/*.test.ts' './test/acceptance/**/*.test.ts'",
+    "test:acceptance": "cross-env NODE_ENV=test NODE_PATH=. mocha --require ts-node/register './test/acceptance/**/*.test.ts' --reporter spec --recursive",
+    "test:smoke": "cross-env NODE_ENV=test NODE_PATH=. mocha --require ts-node/register './test/functional/**/*.test.ts' --grep @smoke --reporter spec --recursive",
+    "test:functional": "cross-env NODE_ENV=test NODE_PATH=. mocha --require ts-node/register './test/functional/**/*.test.ts' --reporter spec --recursive",
+    "test:a11y": "cross-env NODE_PATH=.",
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
+    "sonar-scan": "cross-env NODE_PATH=. sonar-scanner -Dsonar.projectKey='em-showcase' -Dsonar.sources=src/api -Dsonar.tests=test -Dsonar.exclusions=test/**,node_modules/**,src/** "
+  },
+  "dependencies": {
+    "@hmcts/nodejs-logging": "^3.0.0",
+    "applicationinsights": "^1.3.1",
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1",
+    "otp": "^0.1.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/express": "^4.16.1",
+    "@types/http-proxy-middleware": "^0.19.2",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.14.4",
+    "@types/sinon": "^7.0.11",
+    "@types/supertest": "^2.0.7",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "cross-env": "^5.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.1.4",
+    "nyc": "^14.0.0",
+    "sinon": "^7.3.1",
+    "sonar-scanner": "^3.1.0",
+    "supertest": "^4.0.2",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "typescript": "^3.4.1"
+  },
+  "nyc": {
+    "extensions": [
+      ".ts"
+    ],
+    "include": [
+      "./test/unit/**/*.test.ts",
+      "./test/acceptance/**/*.test.js"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "em-showcase",
+  "version": "0.9.9",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "lint": "ng lint"
+  },
+  "dependencies": {
+    "@angular/animations": "~7.1.0",
+    "@angular/common": "~7.1.0",
+    "@angular/compiler": "~7.1.0",
+    "@angular/core": "~7.1.0",
+    "@angular/forms": "^7.1.4",
+    "@angular/platform-browser": "^7.2.7",
+    "@angular/platform-browser-dynamic": "^7.2.7",
+    "@angular/router": "~7.1.0",
+    "@hmcts/dg-docassembly-webcomponent": "^1.0.8",
+    "core-js": "^2.5.4",
+    "govuk-frontend": "^2.5.1",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.13.2",
+    "@angular/cli": "~7.0.3",
+    "@angular/compiler-cli": "^7.2.6",
+    "@angular/language-service": "~7.0.0",
+    "@ng-toolkit/universal": "^1.1.45",
+    "@types/node": "~8.9.4",
+    "ts-node": "~7.0.0",
+    "tsickle": ">=0.29.0",
+    "tslib": "^1.9.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.1.1"
+  }
+}

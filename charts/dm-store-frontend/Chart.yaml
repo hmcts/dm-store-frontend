@@ -1,0 +1,7 @@
+name: em-showcase
+home: https://github.com/hmcts/dm-store-frontend
+version: 0.0.1
+description: A frontend angular application showcasing the dm-store backend APIs
+maintainers:
+  - name: HMCTS Evidence Management Team
+    email: em@hmcts.net
