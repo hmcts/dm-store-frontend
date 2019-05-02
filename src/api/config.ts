@@ -10,6 +10,6 @@ export const config = {
         secret: process.env["S2S_KEY"] || "AAAAAAAAAAAAAAAA",
         microservice: "em_gw"
     },
-    port: process.env.PORT || 1337,
+    port: process.env.PORT || 8080,
     tokenRefreshTime: 60 * 60 * 1000
 };

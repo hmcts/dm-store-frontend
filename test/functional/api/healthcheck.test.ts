@@ -5,7 +5,7 @@ import axios from "axios";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const httpTimeout = 60000;
-const frontendURL = process.env.TEST_URL || "http://localhost:1337";
+const frontendURL = process.env.TEST_URL || "http://localhost:8080";
 
 describe("GET /", () => {
 
