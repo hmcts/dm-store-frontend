@@ -1,0 +1,56 @@
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+        <form #form="ngForm">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">Upload new document(s)</span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <div class="govuk-form-group">
+                                <input type="file" multiple class="govuk-file-upload"
+                                       (change)="fileChange($event)" accept=".pdf,.doc,.docx">
+                            </div>
+                            <span *ngFor="let uploadUrl of uploadUrls" class="govuk-label">{{ uploadUrl }}</span>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">Fetch existing document</span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <div>
+                                <input class="govuk-input govuk-!-width-one-half" name="downloadUrl" type="text" ngModel>
+                                <button class="govuk-button" type="button"
+                                        (click)="setDownloadUrl(form.value.downloadUrl)">Get document</button>
+                            </div>
+                            <a *ngIf="downloadUrl" [href]="downloadUrl + '/binary'" target="_blank">Click to download</a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">Fetch document metadata</span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <div class="govuk-form-group">
+                                <input class="govuk-input govuk-!-width-one-half" name="metadataUrl" type="text" ngModel>
+                                <button class="govuk-button" type="button"
+                                        (click)="getDocumentMetadata(form.value.metadataUrl)">Get metadata</button>
+                            </div>
+                            <app-document-metadata [metadata]="documentMetadata | async"></app-document-metadata>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>

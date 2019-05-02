@@ -3,28 +3,19 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-
-
 import { AppComponent } from './app.component';
-import { DocumentUploadComponent } from './document-upload/document-upload.component';
-import { StartPageComponent } from './start-page/start-page.component';
+import { DocumentMetadataComponent } from './document-metadata.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StartPageComponent,
-    DocumentUploadComponent
+    DocumentMetadataComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     CommonModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', component: StartPageComponent },
-      { path: 'document-upload', component: DocumentUploadComponent }
-    ]),
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
