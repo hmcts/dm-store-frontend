@@ -38,6 +38,7 @@ export class Service {
       target: dmStoreProxy.target,
       onProxyReq: (req: ClientRequest) => {
         req.setHeader("user-roles", "caseworker");
+        req.setHeader("user-id", "dmstoreuser@hmcts.net");
         req.setHeader("ServiceAuthorization", this.serviceAuthRepository.getToken());
       },
       secure: false,
